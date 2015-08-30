@@ -17,7 +17,8 @@ def main(item):
 #  return render_template('index.html')
   cursor.execute("SELECT * FROM BDR_MAST where ID=%s", (item))
   result = cursor.fetchall()
-  return str(result)
+#  return str(result)
+  return render_template('show_results.html')
 
 @app.route('/showSignUp')
 def showSignUp():
