@@ -11,6 +11,9 @@ cursor = db.cursor()
 
 #cursor.execute("SELECT * FROM BDR_MAST where ID=15")
 
+@app.route("/")
+def home():
+  return render_template('home.html')
 
 @app.route("/<item>")
 def main(item):
