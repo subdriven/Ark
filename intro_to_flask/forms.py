@@ -2,17 +2,17 @@ from wtforms import Form, TextField, TextAreaField, SubmitField, HiddenField, va
  
 class ContactForm(Form):
   hidden_tag = HiddenField("hidden field")
-  name = TextField("Name", [validators.DataRequired("Please enter your name.")])
-  email = TextField("Email", [validators.DataRequired("Please enter your email address."), validators.Email("Please enter your email address.")])
-  subject = TextField("Subject", [validators.DataRequired()])
+  name = StringField("Name", [validators.DataRequired("Please enter your name.")])
+  email = StringField("Email", [validators.DataRequired("Please enter your email address."), validators.Email("Please enter your email address.")])
+  subject = StringField("Subject", [validators.DataRequired()])
   message = TextAreaField("Message", [validators.DataRequired()])
   submit = SubmitField("Send")
 
 class SignupForm(Form):
   hidden_tag = HiddenField("hidden field")
-  firstname = TextField("First name",  [validators.DataRequired("Please enter your first name.")])
-  lastname = TextField("Last name",  [validators.DataRequired("Please enter your last name.")])
-  email = TextField("Email",  [validators.DataRequired("Please enter your email address."), validators.Email("Please enter your email address.")])
+  firstname = StringField("First name",  [validators.DataRequired("Please enter your first name.")])
+  lastname = StringField("Last name",  [validators.DataRequired("Please enter your last name.")])
+  email = StringField("Email",  [validators.DataRequired("Please enter your email address."), validators.Email("Please enter your email address.")])
   password = PasswordField('Password', [validators.DataRequired("Please enter a password.")])
   submit = SubmitField("Create account")
 
