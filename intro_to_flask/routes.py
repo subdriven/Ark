@@ -32,3 +32,9 @@ def contact():
   elif request.method == 'GET':
     return render_template('contact.html', form=form)
  
+@app.route('/testdb')
+def testdb():
+  if db.session.query("1").from_statement("SELECT 1").all():
+    return 'It works.'
+  else:
+    return 'Something is broken.'

@@ -12,4 +12,8 @@ app.config["MAIL_PASSWORD"] = 'your-password'
 
 from routes import mail
 mail.init_app(app)
+app.config['SQLALCHEMY_DATABASE_URI'] = 'mysql://ark2:ark2@localhost/ark2'
+ 
+from models import db
+db.init_app(app)
 import intro_to_flask.routes
