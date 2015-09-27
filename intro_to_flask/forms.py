@@ -9,6 +9,7 @@ class ContactForm(Form):
   submit = SubmitField("Send")
 
 class SignupForm(Form):
+  hidden_tag = HiddenField("hidden field")
   firstname = TextField("First name",  [validators.DataRequired("Please enter your first name.")])
   lastname = TextField("Last name",  [validators.DataRequired("Please enter your last name.")])
   email = TextField("Email",  [validators.DataRequired("Please enter your email address."), validators.Email("Please enter your email address.")])
