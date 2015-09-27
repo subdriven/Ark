@@ -1,4 +1,4 @@
-from flask_app import app
+from intro_to_flask import app
 from flask import Flask, render_template, request, flash
 from forms import ContactForm
 from flask.ext.mail import Message, Mail
