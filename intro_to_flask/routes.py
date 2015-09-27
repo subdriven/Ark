@@ -1,7 +1,8 @@
 from intro_to_flask import app
-from flask import Flask, render_template, request, flash
-from forms import ContactForm
+from flask import Flask, render_template, request, flash, session, redirect, url_for
+from forms import ContactForm, SignupForm, SiginForm
 from flask.ext.mail import Message, Mail
+from models import db
 
 mail = Mail()
 
