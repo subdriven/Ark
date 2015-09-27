@@ -12,4 +12,4 @@ app.config["MAIL_PASSWORD"] = 'your-password'
  
 from routes import mail
 mail.init_app(app)
-import app.routes
+import intro_to_flask.routes
