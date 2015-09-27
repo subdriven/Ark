@@ -1,30 +1,30 @@
-from intro_to_flask import ark2
+from intro_to_flask import app
 from flask import Flask, render_template, request, flash
 from forms import ContactForm
 from flask.ext.mail import Message, Mail
  
 mail = Mail()
  
-#ark2 = Flask(__name__)
+#app = Flask(__name__)
  
-#ark2.secret_key = 'development key'
-#ark2.config["MAIL_SERVER"] = "smtp.gmail.com"
-#ark2.config["MAIL_PORT"] = 465
-#ark2.config["MAIL_USE_SSL"] = True
-#ark2.config["MAIL_USERNAME"] = 'contact@example.com'
-#ark2.config["MAIL_PASSWORD"] = 'your-password'
+#app.secret_key = 'development key'
+#app.config["MAIL_SERVER"] = "smtp.gmail.com"
+#app.config["MAIL_PORT"] = 465
+#app.config["MAIL_USE_SSL"] = True
+#app.config["MAIL_USERNAME"] = 'contact@example.com'
+#app.config["MAIL_PASSWORD"] = 'your-password'
  
-#mail.init_ark2(ark2)
+#mail.init_app(app)
  
-@ark2.route('/')
+@app.route('/')
 def home():
   return render_template('home.html')
 
-@ark2.route('/about')
+@app.route('/about')
 def about():
   return render_template('about.html')
 
-@ark2.route('/contact', methods=['GET', 'POST'])
+@app.route('/contact', methods=['GET', 'POST'])
 def contact():
   form = ContactForm()
  
