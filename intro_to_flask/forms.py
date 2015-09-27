@@ -9,10 +9,10 @@ class ContactForm(Form):
   submit = SubmitField("Send")
 
 class SignupForm(Form):
-  firstname = TextField("First name",  [validators.Required("Please enter your first name.")])
-  lastname = TextField("Last name",  [validators.Required("Please enter your last name.")])
-  email = TextField("Email",  [validators.Required("Please enter your email address."), validators.Email("Please enter your email address.")])
-  password = PasswordField('Password', [validators.Required("Please enter a password.")])
+  firstname = TextField("First name",  [validators.DataRequired("Please enter your first name.")])
+  lastname = TextField("Last name",  [validators.DataRequired("Please enter your last name.")])
+  email = TextField("Email",  [validators.DataRequired("Please enter your email address."), validators.Email("Please enter your email address.")])
+  password = PasswordField('Password', [validators.DataRequired("Please enter a password.")])
   submit = SubmitField("Create account")
 
   def __init__(self, *args, **kwargs):
