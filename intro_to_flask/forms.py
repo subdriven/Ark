@@ -1,4 +1,4 @@
-from wtforms import Form, TextField, TextAreaField, SubmitField, HiddenField, validators, ValidationError, PasswordField
+from wtforms import Form, StringField, TextAreaField, SubmitField, HiddenField, validators, ValidationError, PasswordField
  
 class ContactForm(Form):
   hidden_tag = HiddenField("hidden field")
