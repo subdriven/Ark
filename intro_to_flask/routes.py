@@ -8,11 +8,15 @@ mail = Mail()
 
 @app.route('/')
 def home():
-  return render_template('index.html')
+  return render_template('home.html')
 
 @app.route('/about')
 def about():
   return render_template('about.html')
+
+@app.route('/search')
+def search():
+  return render_template('search.html')
 
 @app.route('/contact', methods=['GET', 'POST'])
 def contact():
