@@ -18,23 +18,33 @@
   {% for message in form.password.errors %}
     <div class="flash">{{ message }}</div>
   {% endfor %}
-   
-  <form action="{{ url_for('signup') }}" method=post>
-    {{ form.hidden_tag() }}
-     
-    {{ form.firstname.label }}
-    {{ form.firstname }}
-     
-    {{ form.lastname.label }}
-    {{ form.lastname }}
-     
-    {{ form.email.label }}
-    {{ form.email }}
-     
-    {{ form.password.label }}
-    {{ form.password }}
-     
-    {{ form.submit }}
-  </form>
+
+  <div class="jumbotron">
+    <form class="form-signin" action="{{ url_for('signup') }}" method=post>
+      {{ form.hidden_tag() }}
+      
+      <div class="col-xs-2">
+        <label for="firstname">{{ form.firstname.label }}</label>
+        {{ form.firstname(class="form-control", id="firstname", placeholder="First name") }}
+      </div>
+      
+      <div class="col-xs-2">
+        <label for="lastname">{{ form.lastname.label }}</label>
+        {{ form.lastname(class="form-control", id="last",placeholder="Last name") }}
+      </div>
+      
+      <div class="col-xs-2">
+        <label for="email">{{ form.email.label }}</label>
+        {{ form.email(class="form-control", id="email",placeholder="Email address") }}
+      </div>
+      
+      <div class="col-xs-2">
+        <label for="password">{{ form.password.label }}</label>
+        {{ form.password(class="form-control", id="password", placeholder="Password") }}
+      </div>
+       
+      {{ form.submit(class="btn btn-lg btn-primary") }}
+    </form>
+  </div>
      
 {% endblock %}

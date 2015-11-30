@@ -1,0 +1,15 @@
+{% extends "layout.html" %}
+
+{% block content %}
+ 
+{% for row in data %}
+  {{row[0],row[1],row[2],row[3],row[4],row[5]}}<br>
+{% endfor %}
+
+
+{% for item in data[0] %}
+  {{ data[0][0][1] }}
+{% endfor %}
+
+
+{% endblock %}

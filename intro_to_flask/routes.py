@@ -2,7 +2,12 @@ from intro_to_flask import app
 from flask import Flask, render_template, request, flash, session, redirect, url_for
 from forms import ContactForm, SignupForm#, SiginForm
 from flask.ext.mail import Message, Mail
-from models import db
+#from models import db
+import MySQLdb
+
+# MySQL config
+db = MySQLdb.connect(host="localhost", port=3306, user="ark2", passwd="ark2", db="ark2")
+cursor = db.cursor()
 
 mail = Mail()
 
@@ -16,7 +21,11 @@ def about():
 
 @app.route('/search')
 def search():
-  return render_template('search.html')
+  #  return render_template('index.html')
+  cursor.execute("SELECT * FROM BDR_MAST")
+  result = cursor.fetchall()
+#  return str(result)
+  return render_template('search.html', data=result)
 
 @app.route('/contact', methods=['GET', 'POST'])
 def contact():
