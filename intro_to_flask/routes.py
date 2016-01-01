@@ -3,10 +3,12 @@ from flask import Flask, render_template, request, flash, session, redirect, url
 from forms import ContactForm, SignupForm#, SiginForm
 from flask.ext.mail import Message, Mail
 #from models import db
-import MySQLdb
+#import MySQLdb
+import sqlite3
 
 # MySQL config
-db = MySQLdb.connect(host="localhost", port=3306, user="ark2", passwd="ark2", db="ark2")
+#db = MySQLdb.connect(host="localhost", port=3306, user="ark2", passwd="ark2", db="ark2")
+db = sqlite3.connect('ark2.db', check_same_thread=False)
 cursor = db.cursor()
 
 mail = Mail()
@@ -19,12 +21,13 @@ def home():
 def about():
   return render_template('about.html')
 
-@app.route('/search')
+@app.route('/search', methods=['GET', 'POST`'])
 def search():
-  #  return render_template('index.html')
-  cursor.execute("SELECT * FROM BDR_MAST")
+  cursor.execute("SELECT * FROM animal")
   result = cursor.fetchall()
 #  return str(result)
+  form = SearchForm()
+
   return render_template('search.html', data=result)
 
 @app.route('/contact', methods=['GET', 'POST'])

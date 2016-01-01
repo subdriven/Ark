@@ -16,6 +16,10 @@ class SignupForm(Form):
   password = PasswordField('Password', [validators.DataRequired("Please enter a password.")])
   submit = SubmitField("Create account")
 
+class SearchForm(Form):
+  name = StringField("Animal name")
+  
+
   def __init__(self, *args, **kwargs):
     Form.__init__(self, *args, **kwargs)
 
