@@ -1,15 +1,15 @@
-from wtforms import Form, StringField, TextAreaField, SubmitField, HiddenField, validators, ValidationError, PasswordField
+from wtforms import Form, StringField, TextAreaField, SubmitField, validators, ValidationError, PasswordField
  
-class ContactForm(Form):
-  hidden_tag = HiddenField("hidden field")
-  name = StringField("Name", [validators.DataRequired("Please enter your name.")])
-  email = StringField("Email", [validators.DataRequired("Please enter your email address."), validators.Email("Please enter your email address.")])
-  subject = StringField("Subject", [validators.DataRequired()])
-  message = TextAreaField("Message", [validators.DataRequired()])
+class AnimalEntry(Form):
+  name = StringField("Name", [validators.DataRequired("Please enter animal's name."), validators.Length(min=2, max=100), validators.InputRequired()])
+  regName = StringField("Registered Name", [validators.Length(max=100)])
+  breed = StringField("Breed")
+  sex = TextAreaField("Sex")
+  height = StringField("Height")
+  color = StringField("Color", [validators.Length(max=50)])
   submit = SubmitField("Send")
 
 class SignupForm(Form):
-  hidden_tag = HiddenField("hidden field")
   firstname = StringField("First name",  [validators.DataRequired("Please enter your first name.")])
   lastname = StringField("Last name",  [validators.DataRequired("Please enter your last name.")])
   email = StringField("Email",  [validators.DataRequired("Please enter your email address."), validators.Email("Please enter your email address.")])

@@ -1,6 +1,6 @@
 from intro_to_flask import app
 from flask import Flask, render_template, request, flash, session, redirect, url_for
-from forms import ContactForm, SignupForm#, SiginForm
+from forms import AnimalEntry, SignupForm, SearchForm
 from flask.ext.mail import Message, Mail
 #from models import db
 #import MySQLdb
@@ -32,7 +32,7 @@ def search():
 
 @app.route('/contact', methods=['GET', 'POST'])
 def contact():
-  form = ContactForm()
+  form = AnimalEntry()
  
   if request.method == 'POST':
     if form.validate() == False:
