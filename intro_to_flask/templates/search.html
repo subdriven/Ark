@@ -1,15 +1,20 @@
 {% extends "layout.html" %}
 
+{% for message in form.email.errors %}
+  
+{% endfor %}
+
 {% block content %}
  
 {% for row in data %}
   {% print row %}
 {% endfor %}
 
-
+<ul>
 {% for item in data[0] %}
   {{ data[0][0][1] }}
+  <li>{{ data[1] }}</li>
 {% endfor %}
-
+</ul>
 
 {% endblock %}
