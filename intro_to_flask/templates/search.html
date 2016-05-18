@@ -10,11 +10,13 @@
   {% print row %}
 {% endfor %}
 
-<ul>
+<form>
+<select>
 {% for item in data[0] %}
   {{ data[0][0][1] }}
-  <li>{{ data[1] }}</li>
+  <option value="{{data[0]}}">{{ data[1] }}</option>
 {% endfor %}
-</ul>
+</select>
+</form>
 
 {% endblock %}
